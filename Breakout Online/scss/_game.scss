@@ -1,0 +1,323 @@
+.game {
+  position: relative;
+  background-color: #000;
+  color: white;
+  height: 80vh;
+  width:120vh;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style:solid;
+  border-width: 1px;
+  border-color: rgb(6, 6, 122);
+  background-image: url("/images/backgroundGame1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  -webkit-box-shadow: 1px 1px 100px 1px rgba(6, 6, 122, 0.75);
+  -moz-box-shadow: 1px 1px 100px 1px rgba(6, 6, 122, 0.75);
+  box-shadow: 1px 1px 100px 1px rgba(6, 6, 122, 0.75);
+  
+     
+  .score {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+   
+  .lives {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+  }
+
+  .buttonRight{
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+  }
+
+  .buttonLeft{
+    position: absolute;
+    bottom: 0;
+  }
+   
+  .main-text {
+    display:none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 250px;
+  }
+   
+  .paddle {
+    width: 13vw;
+    height: 2vw;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    border-radius: 20%;
+    background-color: rgb(  211, 220, 248 );
+    box-shadow:
+        0 0 100px 10px #516bfb ,  
+        0 0 100px 10px rgb(53, 40, 231), 
+        0 0 100px 10px rgb(38, 0, 255); 
+  }
+
+
+   
+  .brick {
+    left: 2.77vh;
+    top: 100px;
+    width: 7vh;
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+  }
+   
+  .ball {
+    background-image: url("/images/stormtrooper.png");
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    
+    border-radius: 50%;
+    
+      animation: rotation 2s infinite linear;
+  
+  }
+  
+  @keyframes rotation {
+		from {
+				transform: rotate(0deg);
+		}
+		to {
+				transform: rotate(359deg);
+		}
+}}
+
+.splash {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("/images/bigboom.gif");
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+}
+
+.intro {
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%); 
+  font-size: 50px;
+  font-family: 'Chakra Petch', sans-serif;
+  color: white;
+  z-index: 10;
+  text-shadow: 5px 10px 20px  rgb(6, 6, 122);
+}
+
+.modal {
+  color: black;
+}
+
+@media (max-width: 991.98px) {
+  body {
+    font-size: 20px;
+  }
+  .game {
+    height: 94vh;
+    width: 100vw;
+    margin-top: 0;
+
+    .paddle {
+      width: 20vw;
+  
+    }
+    .brick {
+      left: 1.5vw;
+      width: 6vw;
+    }
+  }
+
+  .intro {
+    top: 300px;
+    left: 45px;
+    font-size: 50px;
+    position: absolute;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+    z-index: 10;
+    text-shadow: 5px 10px 20px  rgb(6, 6, 122);
+  }
+
+  .fa-arrow-alt-circle-left:before {
+    font-size: 66px;
+  }
+  
+  .fa-arrow-alt-circle-right:before {
+    font-size: 66px;
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 321.98px) {
+
+  body {
+    font-size: 10px;
+  }
+  .game {
+    height: 90vh;
+    width: 100vw;
+    margin-top: 0;
+
+    .paddle {
+      width: 20vw;
+  
+    }
+    .brick {
+      left: 1.5vw;
+      width: 6vw;
+    }
+  }
+
+  .intro {
+    top: 300px;
+    left: 45px;
+    font-size: 17px;
+    position: absolute;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+    z-index: 10;
+    text-shadow: 5px 10px 20px  rgb(6, 6, 122);
+  }
+
+  .fa-arrow-alt-circle-left:before {
+    font-size: 28px;
+  }
+  
+  .fa-arrow-alt-circle-right:before {
+    font-size: 28px;
+  }
+
+  footer {
+    display: none;
+  }
+
+}
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) and (min-width: 322px) {
+  body {
+    font-size: 10px;
+  }
+  .game {
+    height: 91vh;
+    width: 100vw;
+    margin-top: 0;
+
+    .paddle {
+      width: 20vw;
+  
+    }
+    .brick {
+      left: 1.5vw;
+      width: 6vw;
+    }
+  }
+
+  .intro {
+    top: 300px;
+    left: 45px;
+    font-size: 20px;
+    position: absolute;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+    z-index: 10;
+    text-shadow: 5px 10px 20px  rgb(6, 6, 122);
+  }
+
+  .fa-arrow-alt-circle-left:before {
+    font-size: 38px;
+  }
+  
+  .fa-arrow-alt-circle-right:before {
+    font-size: 38px;
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+
+@media (max-width: 1025.98px) and (min-width: 1024px) {
+  body {
+    font-size: 10px;
+  }
+  .game {
+    height: 95vh;
+    width: 100vw;
+    margin-top: 0;
+
+    .paddle {
+      width: 20vw;
+  
+    }
+    .brick {
+      left: 1.5vw;
+      width: 6vw;
+    }
+  }
+
+  .intro {
+    top: 300px;
+    left: 90px;
+    font-size: 65px;
+    position: absolute;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+    z-index: 10;
+    text-shadow: 5px 10px 20px  rgb(6, 6, 122);
+  }
+
+  .fa-arrow-alt-circle-left:before {
+    font-size: 100px;
+  }
+  
+  .fa-arrow-alt-circle-right:before {
+    font-size: 100px;
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+.fa-volume-mute:before {
+  padding-left: 12px;
+}
+
+.fa-volume-up:before {
+  padding-left: 12px;
+}
+
+@media (min-width: 1400px) {
+  .fa-arrow-alt-circle-left:before {
+    display: none;
+  }
+  
+  .fa-arrow-alt-circle-right:before {
+    display: none;
+  }
+
+}
+

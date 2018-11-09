@@ -1,0 +1,99 @@
+.navbar {
+    position: relative;
+
+    display:flex;
+    
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 0px 10px 1px #4588cf;
+    -moz-box-shadow: 0px 0px 10px 1px #4588cf;
+    box-shadow: 0px 0px 10px 1px #4588cf;
+
+    .logo {
+        //position: absolute;
+        //left: calc(50% - 50px);
+        //margin: 0 auto;
+        //display: block;
+        //top: 8px;
+        margin: 0 40px;
+    } 
+
+    &-nav {
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+.flagDesign {
+    opacity: 1;
+    cursor: pointer;
+    max-height: 18px;
+    max-width: 18px;
+
+    &:hover {
+        transition: all 0.5s ease;
+        transform: scale(1.5) perspective(1px)
+    }
+}   
+
+.flagPlacement {
+    position: absolute;
+    top: 20px;
+    right: 36px;
+    min-height: 23px;
+    min-width: 23px;
+}
+
+.sweFlag {
+    display: none;
+}
+
+.navbar a {
+    //padding: 10px;
+    margin: 10px; 
+    color: #75a6da;
+    position: relative;
+    
+    &:hover {
+        text-decoration: none;
+        color: #75a6da;
+    }
+
+    &:before {
+        content: "";
+    display: block;
+    height: 2px;
+    background-color: #75a6da;
+
+    position: absolute;
+    top: 26px;
+    width: 0%;
+
+    transition: all ease-in-out 200ms;
+
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &.logo {
+        &:hover::before {
+            width: 0%;
+        }
+    }
+    
+}
+
+.bg-light {
+    background-color: #c7c7c7;
+}
+
+.navbar-toggler-icon {
+    background-color: #75a6da;
+}
+
+.active {
+   color: white !important;
+}

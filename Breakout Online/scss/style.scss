@@ -1,0 +1,32 @@
+// Variable overrides for Bootstrap
+@import 'variable-overrides';
+
+// The whole Bootstrap library
+@import 'bootstrap/bootstrap';
+
+// Body CSS
+@import 'body';
+
+// Navbar CSS
+@import 'navbar';
+
+// Footer CSS
+@import 'footer';
+
+// history page css
+@import 'historyPage';
+
+// Main CSS
+@import 'main';
+
+//Index headlines
+@import 'headlines';
+
+//game css
+@import 'game';
+
+@import 'highscorePage';
+
+@import 'animationwintext';
+
+@import 'modal';

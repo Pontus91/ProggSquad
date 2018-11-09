@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Roboto+Condensed');
+
+.alink {
+    width: 25rem; display: inline-block; overflow:hidden;
+}
+
+.card-text, .btn {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+}
+
+.btn {
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: #4588cf;
+    border-color: #4588cf;
+}
+
+.card-body {
+    background: rgba(0, 0, 255, 0.2);
+}
