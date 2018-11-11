@@ -1,6 +1,36 @@
-$(document).keypress(function (event) {
+/**
+ * Creates HTML element
+ * @param elementType
+ * @param classNames
+ * @param attributes
+ */
+const createElement = (elementType, classNames, attributes) => {
+  const newElement = document.createElement(elementType);
 
-});
+  newElement.classList.add(...classNames);
+
+  if(Array.isArray(attributes)) {
+    for (let attr of attributes) {
+      if (attr.hasOwnProperty('attrVal') && attr.hasOwnProperty('val')) {
+        newElement.setAttribute(attr.attrVal, attr.val);
+      }
+    }
+  }
+
+  return newElement;
+};
+
+/**
+ * Generate random GUI-id
+ * @returns {string}
+ */
+function guidGenerator() {
+  var S4 = function() {
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+  };
+  return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
 
 class saveObject {
   constructor() {
@@ -15,12 +45,44 @@ class saveObject {
     this._score = newScore;
   }
 }
+
+
+/**
+ * Temp stuff;
+ * @type {saveObject}
+ */
+
+const brickKillCallback = () => {
+  console.log('brickIsDead');
+  aBrickObj.destroy();
+};
+
+
 const scoreObj = new saveObject();
 let score = scoreObj.score;
 
+const aBrickObj = new Brick(200, '#ff0000', brickKillCallback );
+document.getElementById('kungK2').appendChild(aBrickObj.brick);
+
+const hitBrick = function () {
+  aBrickObj.registerDamage(25);
+};
+
+/**
+ * Temp stuff
+ */
+
+
+
+
+
+
+
+
 function loadGame() {
+
   // Overwrite the function "loadGame" so it can't be executed again.
-  loadGame = function () { }
+  loadGame = function () {};
 
   // Main variables
   let lives;
@@ -70,7 +132,6 @@ function loadGame() {
 
   // Setup key listeners before starting the first game
   setupKeyListeners();
-
   startNewGame();
   // Reset starting variables etc
   function startNewGame() {
@@ -109,8 +170,6 @@ function loadGame() {
   }
 
   function moveBall(deltaTime) {
-
-
     ball.left += ball.direction.x * ball.speed * deltaTime;
     ball.top += ball.direction.y * ball.speed * deltaTime;
 
@@ -407,8 +466,6 @@ function loadGame() {
       'rgb(0, 255, 0)',
       'rgb(0, 0, 255)',
       'rgb(255, 0, 0)',
-
-
     ];
 
     let prevLeft = brickCSS.left;
