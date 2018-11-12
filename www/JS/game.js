@@ -20,16 +20,6 @@ const createElement = (elementType, classNames, attributes) => {
   return newElement;
 };
 
-/**
- * Generate random GUI-id
- * @returns {string}
- */
-function guidGenerator() {
-  var S4 = function() {
-    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
-  };
-  return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
-}
 
 
 class saveObject {
@@ -61,8 +51,9 @@ const brickKillCallback = () => {
 const scoreObj = new saveObject();
 let score = scoreObj.score;
 
+const rootTestDiv = document.getElementById('kungK2');
 const aBrickObj = new Brick(200, '#ff0000', brickKillCallback );
-document.getElementById('kungK2').appendChild(aBrickObj.brick);
+// document.getElementById('kungK2').appendChild(aBrickObj.brick);
 
 const hitBrick = function () {
   aBrickObj.registerDamage(25);
@@ -71,6 +62,23 @@ const hitBrick = function () {
 /**
  * Temp stuff
  */
+
+const brickss = [
+  { health: 20, color: '#ff0000' },
+  { health: 100, color: '#00ff00' },
+  { health: 250, color: '#0000ff' }
+];
+const brickHandler = new BrickHandler(brickss);
+
+Object.keys(brickHandler.bricks).forEach((brickId) => {
+  console.log(brickHandler.bricks[brickId]);
+  rootTestDiv.appendChild(brickHandler.bricks[brickId].brick.brick);
+});
+
+console.log(brickHandler.bricks);
+
+
+
 
 
 

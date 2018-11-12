@@ -2,14 +2,15 @@
  * Brick classs
  */
 class Brick {
-  constructor(health, color, killedCallback){
+  constructor(health, color, id, killedCallback){
+    this._id = id;
     this._totalHealth = health;
     this._health = health;
     this._color = color;
     this.killedCallback = killedCallback;
 
     this._brick = this.createBrick();
-  }
+  };
 
   /**
    * Sets background color
@@ -17,7 +18,7 @@ class Brick {
    */
   set color(color) {
     this._color = color;
-  }
+  };
 
   /**
    * Returns background color
@@ -25,7 +26,7 @@ class Brick {
    */
   get color () {
     return this._color;
-  }
+  };
 
   /**
    * Sets brick health
@@ -33,7 +34,7 @@ class Brick {
    */
   set health(health) {
     this._health = health;
-  }
+  };
 
   /**
    * Returns brick health
@@ -41,7 +42,7 @@ class Brick {
    */
   get health() {
     return this._health;
-  }
+  };
 
   /**
    * Returns brick HTML element
@@ -88,16 +89,16 @@ class Brick {
    */
   isDead() {
     if (this.health < 1) {
-      this.killedCallback();
+      this.killedCallback(this._id);
     }
-  }
+  };
 
   /**
    * Destroys the brick and removes it from the DOM
    */
   destroy() {
     this.brick.parentNode.removeChild(this.brick);
-  }
+  };
 }
 
 
