@@ -1,35 +1,19 @@
 {
     "navsv": [
         {
-            "nav": "Startsida",
-            "href": "/"
-        },
-        {
-            "nav": "Historia",
-            "href": "/history"
-        },
-        {
-            "nav": "Breakout Online",
+            "nav": "ProggSquad",
             "href": "/breakout-online"
         },
         {
             "nav": "Rekord",
             "href": "/high-score"
         }
+        
     ],
     "naven": [
         {
-            "nav": "Front page",
-            "href": "/"
-        },
-        {
-            "nav": "History",
-            "href": "/history"
-        },
-        {
-            "nav": "Breakout Online",
+            "nav": "ProggSquad",
             "href": "/breakout-online"
-            
         },
         {
             "nav": "Highscore",

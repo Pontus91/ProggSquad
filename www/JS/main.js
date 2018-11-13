@@ -121,9 +121,9 @@ $(document).ready(function() {
         const a = document.createElement('a');
         const img = document.createElement('img');
 
-        a.setAttribute('href', '/');
+       /* a.setAttribute('href', '/');
         a.setAttribute('class', 'logo');
-        img.setAttribute('src', '/images/logobild.jpg');
+        img.setAttribute('src', '/images/logobild.jpg'); */
 
         a.appendChild(img);
 
