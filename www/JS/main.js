@@ -128,7 +128,7 @@ $(document).ready(function() {
 
     const insertHeaderToDom = function(lang) {
         const links = createNav(navJSON, lang);
-        document.getElementById('navbarNavAltMarkup').append(links);
+        // document.getElementById('navbarNavAltMarkup').append(links);
     }
 
     const initHeader = function() {
