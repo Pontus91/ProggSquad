@@ -450,8 +450,6 @@ function loadGame() {
     for (let color of colors) {
       const brick = createBrick(prevLeft, brickCSS.top - brickCSS.height - 20, brickCSS.width, brickCSS.height, colors[0], 80);
 
-      console.log(brickCSS);
-
       bricks.push(brick);
       $('.game').append(brick.$);
 
@@ -460,8 +458,6 @@ function loadGame() {
   }
 
   function createBrick(left, top, width, height, backgroundColor, worth) {
-    console.log(arguments)
-
     const brick = $('<div class="brick">' + '<div class="bricks65">').css({ backgroundColor, left, top });
     return {
       $: brick,
