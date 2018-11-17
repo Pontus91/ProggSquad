@@ -2,14 +2,13 @@
 <html>
 
 <head>
-  <title>BreakOut Online</title>
+  <title>ProggSquad</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
   <meta name="description" content="A website dedicatied for the Breakout online game. A game in which you control a paddle you control a paddle to bounce a ball breaking a wall of bricks.">
   <meta name="keywords" content="Free Game, Breakout game, play breakout online, ArcadeGame, Breakout game history">
-  <meta name="author" content="Pontus Nilsson, Oliver Nilsson, Mirwais Nezami, Mikael Larsson, Pawel, Mohammed">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -24,125 +23,12 @@
       <img src="/images/swedishflag.png" class="flagDesign flagPlacement flag sweFlag" alt="Swedish flag for language selection">
 
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <!-- <div class="navbar-nav"> -->
-        <!-- <a class="nav-item nav-link" href="/"> <span class="sr-only">(current)</span></a> -->
-        <!-- <a class="nav-item nav-link" href="/history"></a> -->
-
-        <!-- <img src="/images/logobild.jpg" class="logo"> -->
-
-        <!-- <a class="nav-item nav-link" href="/breakout-online"></a> -->
-        <!-- <a class="nav-item nav-link" href="/high-score"></a> -->
-        <!-- </div> -->
       </div>
     </nav>
   </header>
   <main>
 
-    <section class="start-page">
-
-
-      <div id="kungK2"></div>
-      <button onclick="hitBrick()">punchBrick</button>
-
-
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col">
-            <section class="title text-center mb-5">
-              <h1 class="display-4">BreakOut Online</h1>
-              <p class="lead headlineSummary"></p>
-            </section>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <section class="card bg-light text-center mb-5">
-              <img class="card-img-top" src="/images/google-link.png" alt="Image representing Google's version of Breakout Online">
-              <div class="card-body">
-                <h5 class="card-title">Google</h5>
-                <p class="card-text firstCard"></p>
-                <a href="https://elgoog.im/breakout/" target="_blank" class="btn btn-primary btn-block"></a>
-              </div>
-            </section>
-          </div>
-          <div class="col-lg-4">
-            <section class="card bg-light text-center mb-5">
-              <img class="card-img-top" src="/images/cc-link.png" alt="Image of the game Outer space">
-              <div class="card-body">
-                <h5 class="card-title">Outer Space</h5>
-                <p class="card-text secondCard"></p>
-                <a href="https://www.classicgame.com/game/Outer+Space+Arkanoid" target="_blank" class="btn btn-primary btn-block"></a>
-              </div>
-            </section>
-          </div>
-          <div class="col-lg-4">
-            <section class="card bg-light text-center mb-5">
-              <img class="card-img-top" src="/images/mit-link.png" alt="Image of the game BrickOut">
-              <div class="card-body">
-                <h5 class="card-title">BrickOut</h5>
-                <p class="card-text thirdCard"></p>
-                <a href="https://www.memory-improvement-tips.com/arkanoid-online-game.html" target="_blank" class="btn btn-primary btn-block"></a>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="history">
-      <div class="container">
-        <!-- Added margin top and centered the image and text in accordance
-            to the main container by addding mt-5(Increasing margin top) and justify-content-center(Placing the <figure> and <article> in the center of <main> element)-->
-        <section class="row mt-5 justify-content-center">
-          <!-- The (md) used in column class will make the size of the element span 6 columns for all screen sizes above medium. Screensizes lower then that will have full width.-->
-          <article class="col-lg-6 mt-3 testSwe1">
-            <h2>Hur spelet fungerar</h2>
-          </article>
-
-          <article class="col-lg-6 mt-3 testEng1">
-            <h2>How the game works</h2>
-          </article>
-          <figure class="col-md-0 lg-4 md-0 order-first order-lg-last">
-            <!-- img-fluid will make the image take the full width within the element it is placed in, in this case the <figure> element.-->
-            <img class="img-fluid" src="/images/old-breakout.jpg" alt="Picture of an old version of BreakoutGame">
-          </figure>
-        </section>
-        <!-- Added margin top and centered the image and text in accordance
-            to the main container by addding mt-5(Increasing margin top) and justify-content-center(Placing the <figure> and <article> in the center of <main> element)-->
-        <section class="row mt-3 justify-content-center">
-          <figure class="col-md-0 lg-4  mt-5 order-first">
-            <img class="img-fluid" src="/images/NolanBushnell-SteveWozniak-and-SteveBristow-big.jpg" alt="Picture of Nolan Bushell, Steve Wozniak and SteveBristow.">
-          </figure>
-          <article class="col-lg-6 testSwe2">
-            <h2>Spelskaparna</h2>
-          </article>
-
-          <article class="col-lg-6 testEng2">
-            <h2>Game creators</h2>
-          </article>
-        </section>
-
-        <section class="row mt-3 justify-content-center">
-          <!-- The (md) used in column class will make the size of the element span 6 columns for all screen sizes above medium. Screensizes lower then that will have full width.-->
-          <article class="col-lg-6 mt-4 testSwe3">
-            <h2>Breakout varianter</h2>
-          </article>
-
-          <article class="col-lg-6 mt-4 testEng3">
-            <h2>Breakout variants</h2>
-          </article>
-          <figure class="col-md-0 lg-4 order-first order-lg-last">
-            <!-- img-fluid will make the image take the full width within the element it is placed in, in this case the <figure> element.-->
-
-            <img class="img-fluid" src="/images/new-breakout.jpg" alt="An image of a newer version of the Breakout online.">
-
-          </figure>
-      </div>
-    </section>
-
-
     <section class="breakout-online game">
-      <!-- <div class ="splash"></div> Lägger till splash -->
       <div class="intro"></div>
       <div class="score">SCORE: <span>00000</span></div>
       <div class="lives">LIVES: <span>3</span><i class="fas fa-volume-mute"></i><i class="fas fa-volume-up"></i></div>
@@ -220,17 +106,6 @@
 
 
   </main>
-  <footer class="container-fluid mt-3">
-    <div class="row footerTextPosition">
-      <div class="col">
-        <p>ArcadeGame</p>
-        <p class="kontaktText"></p>
-        <p class="telefonText"></p>
-        <p class="emailText"></p>
-        <p><a href="mailto:info@breakoutgame.se">info@breakoutgame.se</a></p>
-      </div>
-    </div>
-  </footer>
   <script src="./JS/BrickClass.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
