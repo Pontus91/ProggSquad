@@ -41,50 +41,8 @@ class saveObject {
  * Temp stuff;
  * @type {saveObject}
  */
-
-const brickKillCallback = () => {
-  console.log('brickIsDead');
-  aBrickObj.destroy();
-};
-
-
 const scoreObj = new saveObject();
 let score = scoreObj.score;
-
-const rootTestDiv = document.getElementById('kungK2');
-const aBrickObj = new Brick(200, '#ff0000', brickKillCallback );
-// document.getElementById('kungK2').appendChild(aBrickObj.brick);
-
-const hitBrick = function () {
-  aBrickObj.registerDamage(25);
-};
-
-/**
- * Temp stuff
- */
-
-const brickss = [
-  { health: 20, color: '#ff0000' },
-  { health: 100, color: '#00ff00' },
-  { health: 250, color: '#0000ff' }
-];
-const brickHandler = new BrickHandler(brickss);
-
-Object.keys(brickHandler.bricks).forEach((brickId) => {
-  console.log(brickHandler.bricks[brickId]);
-  rootTestDiv.appendChild(brickHandler.bricks[brickId].brick.brick);
-});
-
-console.log(brickHandler.bricks);
-
-
-
-
-
-
-
-
-
 
 
 function loadGame() {
@@ -114,6 +72,13 @@ function loadGame() {
   const audio2 = new Audio("/sound/LIGHTS.mp3");
   const audio3 = new Audio("/sound/wow.wav");
   const audio4 = new Audio("/sound/SPLAT.mp3");
+
+
+  const hardBrick = { health: 500, color: '#5f5f5f' };
+  const bricksArray = [ hardBrick, hardBrick, hardBrick, hardBrick, hardBrick, hardBrick, hardBrick, hardBrick, hardBrick, hardBrick, hardBrick, hardBrick ];
+  const brickHandler = new BrickHandler(bricksArray, 'brick-root');
+
+
   audio1.volume = 0;
   audio2.volume = 0;
   audio3.volume = 0;
@@ -278,26 +243,26 @@ function loadGame() {
   }
 
   function collisionDetectBallAndBricks() {
-    for (let i = bricks.length - 1; i >= 0; --i) {
-      const brick = bricks[i];
-      if (!isRectAOutsideRectB(ball, brick)) {
-        if (getHorizontalOrVerticalDirection(brick, ball) == 'horizontal') {
+    for(let i = 0; i < brickHandler.getBricksAsArray().length; i++){
+      const brick1 = brickHandler.fetchBrickByIndex(i);
+
+      if (!isRectAOutsideRectB(ball, brick1._brickCords)){
+        if (getHorizontalOrVerticalDirection(brick1._brickCords, ball) == 'horizontal') {
           // If it bounced on the side of the brick
           ball.direction.x *= -1;
         } else {
           // If it bounced above/below a brick
           ball.direction.y *= -1;
         }
-        score += brick.worth;
-        brick.$.remove();
-        bricks.splice(i, 1);
-        //score += 20;
+        score += brick1._worth;
+        brickHandler.registerBrickDamage(brick1._id, 250);
         updateInterface();
 
         // Sound when you hit the bricks
         audio4.play();
-      }
+      };
     }
+
     if (bricks.length == 0) {
       paused = true;
       updateInterface();
@@ -434,6 +399,7 @@ function loadGame() {
 
   function resetBall() {
     ball.$ = $('.ball');
+    ball.damage = 25;
     ball.speed = initialBallSpeed;
     ball.$.css('left', (ball.left = gameBorders.width / 2 - 40));
     ball.$.css('top', (ball.top = gameBorders.height / 1.2));
@@ -459,6 +425,9 @@ function loadGame() {
   }
 
   function spawnBricks() {
+    brickHandler.appendBrickToRoot();
+
+
     const brickCSS = getBrickCSS('left', 'top', 'width', 'height');
 
     const colors = [
@@ -481,41 +450,18 @@ function loadGame() {
     for (let color of colors) {
       const brick = createBrick(prevLeft, brickCSS.top - brickCSS.height - 20, brickCSS.width, brickCSS.height, colors[0], 80);
 
-      bricks.push(brick);
-      $('.game').append(brick.$);
-
-      prevLeft += brickCSS.width * 1.4;
-    }
-
-    prevLeft = brickCSS.left;
-
-    for (let color of colors) {
-      const brick = createBrick(prevLeft, brickCSS.top, brickCSS.width, brickCSS.height, colors[1], 60);
+      console.log(brickCSS);
 
       bricks.push(brick);
       $('.game').append(brick.$);
 
       prevLeft += brickCSS.width * 1.4;
-    }
-    prevLeft = brickCSS.left;
-    for (let color of colors) {
-
-      const brick = createBrick(prevLeft, brickCSS.top + brickCSS.height + 20, brickCSS.width, brickCSS.height, colors[2], 40); bricks.push(brick);
-
-      $('.game').append(brick.$); prevLeft += brickCSS.width * 1.4;
-
-    }
-    prevLeft = brickCSS.left;
-    for (let color of colors) {
-
-      const brick = createBrick(prevLeft, brickCSS.top + (brickCSS.height + 20) * 2, brickCSS.width, brickCSS.height, colors[3], 20); bricks.push(brick);
-
-      $('.game').append(brick.$); prevLeft += brickCSS.width * 1.4;
-
     }
   }
 
   function createBrick(left, top, width, height, backgroundColor, worth) {
+    console.log(arguments)
+
     const brick = $('<div class="brick">' + '<div class="bricks65">').css({ backgroundColor, left, top });
     return {
       $: brick,
@@ -530,11 +476,12 @@ function loadGame() {
 
   function getBrickCSS(...properties) {
     const tempBrick = $('<div class="brick">').appendTo('.game');
-    const css = {}
+    const css = {};
     for (let prop of properties) {
       css[prop] = parseInt(tempBrick.css(prop));
     }
     tempBrick.remove();
+    console.log(css);
     return css;
   }
 
